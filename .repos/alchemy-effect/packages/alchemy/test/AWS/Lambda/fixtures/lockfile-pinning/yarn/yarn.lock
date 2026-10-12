@@ -5,12 +5,28 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
+"lockfile-pinning-yarn-fixture@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "lockfile-pinning-yarn-fixture@workspace:."
+  dependencies:
+    make-dir: "npm:^3.0.0"
+  languageName: unknown
+  linkType: soft
+
 "make-dir@npm:^3.0.0":
   version: 3.0.0
   resolution: "make-dir@npm:3.0.0"
   dependencies:
     semver: "npm:^6.0.0"
+  checksum: 10c0/3ed08cd6328870c0bd77d3578485fbd3018a35859cd09f8d21b8525765bf30cc4316e4b5123206e4e6cf27bd06d7783792dc3965edbce0a241f1270d53f9f1bd
+  languageName: node
+  linkType: hard
 
-"semver@npm:^6.0.0":
-  version: 6.3.0
-  resolution: "semver@npm:6.3.0"
+"semver@npm:6.3.1":
+  version: 6.3.1
+  resolution: "semver@npm:6.3.1"
+  bin:
+    semver: bin/semver.js
+  checksum: 10c0/e3d79b609071caa78bcb6ce2ad81c7966a46a7431d9d58b8800cfa9cb6a63699b3899a0e4bcce36167a284578212d9ae6942b6929ba4aa5015c079a67751d42d
+  languageName: node
+  linkType: hard
