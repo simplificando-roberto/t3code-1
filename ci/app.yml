@@ -1,0 +1,31 @@
+app_key: t3code-1
+display_name: "T3Code 1"
+repo: https://github.com/simplificando-roberto/t3code-1.git
+repo_owner: simplificando-roberto
+default_branch: main
+
+stack:
+  type: [node]
+
+paths:
+  root: .
+
+commands:
+  install:
+    - corepack enable && corepack pnpm install --frozen-lockfile
+  lint: []
+  typecheck: []
+  test: []
+  build:
+    - corepack pnpm build
+  e2e: []
+
+deploy:
+  type: none
+
+health:
+  staging: []
+  production: []
+
+security:
+  trivy: true
