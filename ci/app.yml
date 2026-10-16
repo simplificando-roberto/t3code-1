@@ -1,0 +1,45 @@
+app_key: t3code-1
+repo: https://github.com/simplificando-roberto/t3code-1.git
+repo_owner: simplificando-roberto
+default_branch: main
+
+stack:
+  type: [node, monorepo]
+paths:
+  root: .
+
+commands:
+  install: |
+    set -eu
+    node -e 'const assert = require("node:assert/strict"); const required = require("./package.json").engines.node.slice(1).split(".").map(Number); const actual = process.versions.node.split(".").map(Number); assert(actual[0] === 24 && actual[0] === required[0] && (actual[1] > required[1] || (actual[1] === required[1] && actual[2] >= required[2])), "Runner must satisfy package.json Node 24 engine");'
+    test "$(corepack pnpm --version)" = "$(node -p 'require("./package.json").packageManager.split("@")[1]')"
+    # prepare invokes vp; expose the locally installed binary during install.
+    export PATH="$PWD/node_modules/.bin:$PATH"
+    if ! pkg-config --exists libsecret-1; then
+      if [ "$(id -u)" -eq 0 ]; then
+        apt-get update
+        apt-get install -y --no-install-recommends pkg-config libsecret-1-dev
+      else
+        sudo -n apt-get update
+        sudo -n apt-get install -y --no-install-recommends pkg-config libsecret-1-dev
+      fi
+    fi
+    corepack pnpm install --frozen-lockfile
+  lint: corepack pnpm run lint
+  typecheck: corepack pnpm run typecheck
+  test: corepack pnpm run test
+  build: corepack pnpm run build
+
+deploy:
+  type: none
+health: {}
+security:
+  trivy: true
+  severity: HIGH,CRITICAL
+  fail_on_vulnerability: true
+ci:
+  heavy_tests:
+    enabled: true
+  main_guard:
+    enabled: true
+    revert: queue_pr

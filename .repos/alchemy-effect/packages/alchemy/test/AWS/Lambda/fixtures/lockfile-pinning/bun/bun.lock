@@ -1,11 +1,19 @@
 {
-  // Bun lockfiles are JSONC.
   "lockfileVersion": 1,
   "workspaces": {
-    "": { "dependencies": { "make-dir": "^3.0.0" } },
+    "": {
+      "name": "lockfile-pinning-bun-fixture",
+      "dependencies": {
+        "make-dir": "^3.0.0",
+      },
+    },
+  },
+  "overrides": {
+    "semver": "6.3.1",
   },
   "packages": {
-    "make-dir": ["make-dir@3.0.0", "", { "dependencies": { "semver": "^6.0.0" } }],
-    "semver": ["semver@6.3.0", "", {}],
-  },
+    "make-dir": ["make-dir@3.0.0", "", { "dependencies": { "semver": "^6.0.0" } }, "sha512-grNJDhb8b1Jm1qeqW5R/O63wUo4UXo2v2HMic6YT9i/HBlF93S8jkMgH7yugvY9ABDShH4VZMn8I+U8+fCNegw=="],
+
+    "semver": ["semver@6.3.1", "", { "bin": { "semver": "bin/semver.js" } }, "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA=="],
+  }
 }
