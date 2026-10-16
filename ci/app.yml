@@ -15,6 +15,15 @@ commands:
     test "$(corepack pnpm --version)" = "$(node -p 'require("./package.json").packageManager.split("@")[1]')"
     # prepare invokes vp; expose the locally installed binary during install.
     export PATH="$PWD/node_modules/.bin:$PATH"
+    if ! pkg-config --exists libsecret-1; then
+      if [ "$(id -u)" -eq 0 ]; then
+        apt-get update
+        apt-get install -y --no-install-recommends pkg-config libsecret-1-dev
+      else
+        sudo -n apt-get update
+        sudo -n apt-get install -y --no-install-recommends pkg-config libsecret-1-dev
+      fi
+    fi
     corepack pnpm install --frozen-lockfile
   lint: corepack pnpm run lint
   typecheck: corepack pnpm run typecheck
@@ -29,6 +38,8 @@ security:
   severity: HIGH,CRITICAL
   fail_on_vulnerability: true
 ci:
+  heavy_tests:
+    enabled: true
   main_guard:
     enabled: true
     revert: queue_pr
