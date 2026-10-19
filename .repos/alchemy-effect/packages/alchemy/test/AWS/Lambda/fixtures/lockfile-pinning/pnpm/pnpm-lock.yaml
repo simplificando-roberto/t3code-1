@@ -1,5 +1,12 @@
 lockfileVersion: '9.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+overrides:
+  semver: 6.3.1
+
 importers:
 
   .:
@@ -8,10 +15,20 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
 
+packages:
+
+  make-dir@3.0.0:
+    resolution: {integrity: sha512-grNJDhb8b1Jm1qeqW5R/O63wUo4UXo2v2HMic6YT9i/HBlF93S8jkMgH7yugvY9ABDShH4VZMn8I+U8+fCNegw==}
+    engines: {node: '>=8'}
+
+  semver@6.3.1:
+    resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
+    hasBin: true
+
 snapshots:
 
   make-dir@3.0.0:
     dependencies:
-      semver: 6.3.0
+      semver: 6.3.1
 
-  semver@6.3.0: {}
+  semver@6.3.1: {}
