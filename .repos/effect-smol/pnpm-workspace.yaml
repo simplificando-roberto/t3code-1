@@ -27,4 +27,19 @@ allowBuilds:
   workerd: false
 
 patchedDependencies:
+  "metro@0.83.7": patches/metro@0.83.7.patch
   '@changesets/get-github-info@1.0.1': patches/@changesets__get-github-info@1.0.1.patch
+
+overrides:
+  # Patched versions for the verified HIGH/CRITICAL advisory snapshot.
+  "sharp@0.35.2": "0.35.5"
+  "shell-quote@1.10.0": "1.11.0"
+  "seroval@1.5.6": "1.6.3"
+  "source-map-js@1.2.1": "1.2.2"
+  "@grpc/grpc-js@1.14.4": "1.14.5"
+  "nodemailer@10.0.0": "10.0.6"
+  "brace-expansion@1.1.16": "1.1.20"
+  "brace-expansion@2.1.4": "2.1.6"
+  "undici@7.29.0": "7.29.1"
+  "image-size@1.2.1": "2.0.3"
+  "js-yaml@4.3.1": "4.3.2"

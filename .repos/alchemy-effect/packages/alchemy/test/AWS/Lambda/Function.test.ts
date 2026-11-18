@@ -212,9 +212,8 @@ test.provider(
       yield* stack.destroy();
 
       // Each fixture project declares make-dir@^3.0.0 but its lockfile pins
-      // make-dir@3.0.0 and its transitive semver@6.3.0 — both below the latest
-      // versions satisfying their ranges (3.1.0 / 6.3.1). Free npm resolution
-      // installs the newer versions, so the assertions below fail without
+      // make-dir@3.0.0 with patched semver@6.3.1. Free npm resolution
+      // installs make-dir@3.1.0, so the assertions below fail without
       // lockfile pinning. Legacy binary bun.lockb has no live fixture because
       // current Bun can only write the text format; its print-and-parse path
       // is covered by the yarn-v1 unit fixtures.
@@ -261,7 +260,7 @@ test.provider(
           semver: string;
         };
         expect(body.makeDir, format).toBe("3.0.0");
-        expect(body.semver, format).toBe("6.3.0");
+        expect(body.semver, format).toBe("6.3.1");
       }
 
       yield* stack.destroy();

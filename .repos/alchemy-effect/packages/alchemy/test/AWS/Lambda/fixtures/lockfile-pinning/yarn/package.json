@@ -3,5 +3,8 @@
   "private": true,
   "dependencies": {
     "make-dir": "^3.0.0"
+  },
+  "resolutions": {
+    "semver": "6.3.1"
   }
 }

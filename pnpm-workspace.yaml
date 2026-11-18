@@ -98,6 +98,18 @@ minimumReleaseAgeExclude:
   - cn@0.3.2
 
 overrides:
+  "http-cache-semantics@4.2.0": "4.3.0"
+  # Patched versions for the verified HIGH/CRITICAL advisory snapshot.
+  "@modelcontextprotocol/sdk@1.29.0": "1.31.0"
+  "sharp@0.35.4": "0.35.5"
+  "shell-quote@1.10.0": "1.11.0"
+  "seroval@1.5.4": "1.6.3"
+  "source-map-js@1.2.1": "1.2.2"
+  "proxy-addr@2.0.7": "2.0.8"
+  "compression@1.8.1": "1.8.2"
+  "devalue@5.9.2": "5.9.3"
+  "image-size@1.2.1": "2.0.3"
+  "path-to-regexp@6.1.0": "6.3.0"
   # Earlier React Navigation declarations create a circular type alias in TypeScript 7.
   "@react-navigation/core": 7.21.13
   # The dbus-next patch drops usocket from the package, but pnpm resolves from the
@@ -178,6 +190,7 @@ packageExtensions:
       vite: "catalog:"
 
 patchedDependencies:
+  "metro@0.84.4": patches/metro@0.84.4.patch
   "@clerk/expo@4.6.8": patches/@clerk__expo@4.6.8.patch
   "@effect/vitest@4.0.0-rc.115": patches/@effect__vitest@4.0.0-rc.115.patch
   "@expo/metro-config@57.0.12": patches/@expo__metro-config@57.0.12.patch
