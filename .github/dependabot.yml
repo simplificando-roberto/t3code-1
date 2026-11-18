@@ -1,0 +1,28 @@
+# Solo seguridad agrupada. SEC-PROACTIVA-LOTE2-1210-B-C1.
+# El limite 0 desactiva las PR de versiones; seguridad sigue agrupada por ecosistema.
+version: 2
+updates:
+- package-ecosystem: npm
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 0
+  labels:
+  - dependencies
+  - security
+  groups:
+    security:
+      applies-to: security-updates
+      patterns:
+      - '*'
+  directories:
+  - /
+  - /.repos/alchemy-effect
+  - /.repos/alchemy-effect/packages/alchemy/test/AWS/Lambda/fixtures/lockfile-pinning/npm
+  - /.repos/alchemy-effect/packages/alchemy/test/AWS/Lambda/fixtures/lockfile-pinning/pnpm
+  - /.repos/alchemy-effect/packages/alchemy/test/AWS/Lambda/fixtures/lockfile-pinning/yarn
+  - /.repos/alchemy-effect/packages/alchemy/test/AWS/Website/fixtures/react-router-app
+  - /.repos/alchemy-effect/packages/alchemy/test/Cloudflare/Website/fixtures/astro-app
+  - /.repos/alchemy-effect/packages/alchemy/test/Cloudflare/Website/fixtures/astro-static-app
+  - /.repos/effect-smol
+  - /apps/marketing
+  - /scripts
